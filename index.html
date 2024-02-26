@@ -122,6 +122,12 @@
         top: 1rem;
       }
     }
+    .logoutbtn{
+      border-style: none;
+      background-color: orange;
+      color: white;
+      font-size: large;
+    }
   </style>
 </head>
 
@@ -133,8 +139,8 @@
       <li class="upward"><a href="rest.html">Order Food</a></li>
       <li class="forward"><a href="book.html">Study Material</a></li>
       <li><a href="Xerox page/index.html">Printing</a></li>
+      <li><button id="logout" class = "logoutbtn">Logout</button></li>
       <li><img src="moon.png" id="icon"></li>
-      <li><button id="logout">Logout</button></li>
     </ul>
   </header>
 
@@ -195,7 +201,7 @@
         <a class="foot btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-github"></i></a>
       </section>
       <section class="mb-4">
-
+        
       </section>
       <section class="">
         <!--Grid row-->
@@ -210,8 +216,7 @@
                     class="fab fa-github"></i></a>
               </li>
               <li>
-                <a class="foot btn-outline-light btn-floating m-1"
-                  href="https://www.linkedin.com/in/rohan-gupta-187425262/" role="button"><i
+                <a class="foot btn-outline-light btn-floating m-1" href="https://www.linkedin.com/in/rohan-gupta-187425262/" role="button"><i
                     class="fab fa-linkedin-in"></i></a>
               </li>
               <li>
@@ -230,17 +235,16 @@
 
             <ul class="list-unstyled mb-0">
               <li>
-                <a class="foot btn-outline-light btn-floating m-1" href="https://github.com/rohan-12345"
-                  role="button"><i class="fab fa-github"></i></a>
+                <a class="foot btn-outline-light btn-floating m-1" href="https://github.com/rohan-12345" role="button"><i
+                    class="fab fa-github"></i></a>
               </li>
               <li>
-                <a class="foot btn-outline-light btn-floating m-1"
-                  href="https://www.linkedin.com/in/rohan-rajput-1983b122a/" role="button"><i
+                <a class="foot btn-outline-light btn-floating m-1" href="https://www.linkedin.com/in/rohan-rajput-1983b122a/" role="button"><i
                     class="fab fa-linkedin-in"></i></a>
               </li>
               <li>
-                <a class="foot btn-outline-light btn-floating m-1" href="https://mail.google.com/mail/u/0/#inbox"
-                  role="button"><i class="fab fa-google"></i></a>
+                <a class="foot btn-outline-light btn-floating m-1" href="https://mail.google.com/mail/u/0/#inbox" role="button"><i
+                    class="fab fa-google"></i></a>
               </li>
               <li>
                 <a class="foot btn-outline-light btn-floating m-1" href="" role="button"><i
@@ -260,8 +264,7 @@
                     class="fab fa-github"></i></a>
               </li>
               <li>
-                <a class="foot btn-outline-light btn-floating m-1"
-                  href="https://www.linkedin.com/in/rajesh-kumar-a3081b223/" role="button"><i
+                <a class="foot btn-outline-light btn-floating m-1" href="https://www.linkedin.com/in/rajesh-kumar-a3081b223/" role="button"><i
                     class="fab fa-linkedin-in"></i></a>
               </li>
               <li>
@@ -286,8 +289,7 @@
                     class="fab fa-github"></i></a>
               </li>
               <li>
-                <a class="foot btn-outline-light btn-floating m-1"
-                  href="https://www.linkedin.com/in/mudit-rastogi-0937b3247/" role="button"><i
+                <a class="foot btn-outline-light btn-floating m-1" href="https://www.linkedin.com/in/mudit-rastogi-0937b3247/" role="button"><i
                     class="fab fa-linkedin-in"></i></a>
               </li>
               <li>
@@ -309,11 +311,11 @@
     <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
       <div class="copyright">
         CopyRight
-        &copy; 2023 CampusCrafter
-      </div>
-      <div class="contact">
-        Contact us at: <a href="mailto:contact@admincampuscrafter.com">contact@admincampuscrafter.com</a>
-      </div>
+      &copy; 2023 CampusCrafter
+    </div>
+    <div class="contact">
+      Contact us at: <a href="mailto:contact@admincampuscrafter.com">contact@admincampuscrafter.com</a>
+    </div>
     </div>
     <!-- Copyright -->
   </footer>
@@ -333,24 +335,14 @@
       }
     }
   </script>
-
   <script>
-    function check() {
-      // Check if the user is not logged in
-      if (!localStorage.getItem('isLogin')) {
-        // Redirect to the login page
-        window.location.href = 'login.html'; // Replace 'login.html' with the actual login page URL
-      }
-    }
-    check();
-
     const btn = document.getElementById('logout');
     btn.addEventListener('click', () => {
       console.log('clicked');
       localStorage.clear('isLogin');
+      window.location.assign('login.html');
       check();
     })
   </script>
 </body>
-
 </html>
