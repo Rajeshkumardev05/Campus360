@@ -343,6 +343,16 @@
       window.location.assign('login.html');
       check();
     })
+    
+    function check() {
+      // Check if the user is not logged in
+      if (!localStorage.getItem('isLogin')) {
+        // Redirect to the login page
+        window.location.href = 'login.html'; // Replace 'login.html' with the actual login page URL
+      }
+    }
+    check();
+
   </script>
 </body>
 </html>
