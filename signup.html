@@ -42,7 +42,7 @@
                             <i class="fas fa-key"></i>
                         </div>
                         
-                        <input type="submit" value="Login">
+                        <input type="submit" value="SignUp">
                         <!-- <div class="inputBx" id="loginButtonContainer">
                             <input type="submit" value="Log in" disabled class="loginBtn">
                         </div>                         -->
@@ -96,12 +96,12 @@
 
                 const result = await response.json();
                 console.log(result); // Do something with the response data
-                alert('Login successful.');
+                alert('SignUp successful.');
                 window.location.href = 'index.html';
 
             } catch (error) {
                 console.error(error);
-                alert('Login failed. Please try again.');
+                alert('SignUp failed. Please try again.');
             }
         });
     </script>
