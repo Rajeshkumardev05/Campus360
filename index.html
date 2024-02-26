@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Campus Crafter</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
+  <!-- Google Fonts Roboto -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
+  <!-- MDB -->
+  <link rel="stylesheet" href="css/mdb.min.css" />
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="nav.css">
+  <link rel="stylesheet" href="utility.css">
+  <link rel="stylesheet" href="buttons.css">
+  <link rel="stylesheet" href="1.css">
+  <link rel="stylesheet" href="new.css">
+  <style>
+    .container {
+      max-width: 1180px;
+      margin-inline: auto;
+      padding-inline: var(--padding-inline-section);
+      overflow: hidden;
+    }
+
+    .flex {
+      display: flex;
+      align-items: center;
+    }
+
+    .examples-header {
+      margin-top: 20px;
+      flex-direction: column;
+      gap: 20px;
+      padding-block: 40px;
+    }
+
+    .examples-card {
+      width: 23%;
+      position: relative;
+      height: 320px;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.8)), url('./Images/dishes.jpg');
+      background-size: cover;
+      transition: 0.8s ease-out;
+      box-shadow: 0 0 15px #111;
+      border-radius: 10%;
+    }
+
+    .examples-card:nth-child(2) {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.8)), url('buy.jpg');
+      background-size: cover;
+    }
+
+    .examples-card:nth-child(3) {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.8)), url('books.jpg');
+      background-size: cover;
+    }
+
+    .examples-card:nth-child(4) {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.8)), url('printer.webp');
+      background-size: cover;
+    }
+
+    .examples-card:hover {
+      box-shadow: 0 0 20px #333;
+      border-radius: 20%;
+      transform: scale(1.16);
+    }
+
+    .card-text {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      right: 20px;
+      color: white;
+      font-family: 'Lucida Handwriting';
+      font-weight: 800;
+    }
+
+    .card-text:hover {
+      color: orange;
+    }
+
+    .examples-area {
+      margin-block: 40px;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .sec-btn {
+      border-radius: 6px;
+      border: 1px solid var(--secondary-text-color);
+      font-size: 25px;
+      font-weight: 800;
+      color: var(--secondary-color) !important;
+      padding: 12px 24px;
+      transition: 0.4s ease-out;
+    }
+
+    .sec-btn:hover {
+      border-color: var(--accent-color);
+      color: var(--accent-color) !important;
+    }
+
+    @media screen and (max-width:991px) {
+      .examples-area {
+        gap: 20px;
+      }
+
+      .examples-card {
+        width: calc(50% - 10px);
+        height: 180px;
+      }
+    }
+
+    @media only screen and (max-width: 768px) {
+      .nav-menu {
+        position: relative;
+        top: 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <ul class="nav-links">
+      <a href="#"><img src="logo2.png" class="logo"></a>
+      <li class="center"><a href="1.html">Buy & Sell</a></li>
+      <li class="upward"><a href="rest.html">Order Food</a></li>
+      <li class="forward"><a href="book.html">Study Material</a></li>
+      <li><a href="Xerox page/index.html">Printing</a></li>
+      <li><img src="moon.png" id="icon"></li>
+      <li><button id="logout">Logout</button></li>
+    </ul>
+  </header>
+
+  <section class="examples-section">
+    <div class="container">
+      <div class="containerhead">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <h3 class="animate-charcter">CAMPUS 360&#176;</h3>
+            <br>
+            <h6 class="animate-charcter" style="font-size:larger">Fusing Needs, Creating Bonds</h6>
+          </div>
+        </div>
+      </div>
+
+      <div class="examples-area flex">
+        <a href="rest.html" class="examples-card">
+          <h3 class="card-text">Order Food</h3>
+        </a>
+
+        <a href="1.html" class="examples-card">
+          <h3 class="card-text">Buy And Sell</h3>
+        </a>
+
+        <a href="book.html" class="examples-card">
+          <h3 class="card-text">Study Materials</h3>
+        </a>
+
+        <a href="/Xerox page/index.html" class="examples-card">
+          <h3 class="card-text">Printing facilities</h3>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <footer class="bg-dark text-center text-white">
+    <div class="container p-4">
+      <!-- Section: Social media -->
+      <section class="mb-4">
+        <!-- Facebook -->
+        <a class="foot btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-facebook-f"></i></a>
+
+        <!-- Twitter -->
+        <a class="foot btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-twitter"></i></a>
+
+        <!-- Google -->
+        <a class="foot btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-google"></i></a>
+
+        <!-- Instagram -->
+        <a class="foot btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-instagram"></i></a>
+
+        <!-- Linkedin -->
+        <a class="foot btn-outline-light btn-floating m-1" href="#!" role="button"><i
+            class="fab fa-linkedin-in"></i></a>
+
+        <!-- Github -->
+        <a class="foot btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-github"></i></a>
+      </section>
+      <section class="mb-4">
+
+      </section>
+      <section class="">
+        <!--Grid row-->
+        <div class="row">
+          <!--Grid column-->
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+            <h5 class="text-uppercase">Rohan Gupta</h5>
+
+            <ul class="list-unstyled mb-0">
+              <li>
+                <a class="foot btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                    class="fab fa-github"></i></a>
+              </li>
+              <li>
+                <a class="foot btn-outline-light btn-floating m-1"
+                  href="https://www.linkedin.com/in/rohan-gupta-187425262/" role="button"><i
+                    class="fab fa-linkedin-in"></i></a>
+              </li>
+              <li>
+                <a class="foot btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                    class="fab fa-google"></i></a>
+              </li>
+              <li>
+                <a class="foot btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                    class="fab fa-twitter"></i></a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+            <h5 class="text-uppercase">Rohan Rajput</h5>
+
+            <ul class="list-unstyled mb-0">
+              <li>
+                <a class="foot btn-outline-light btn-floating m-1" href="https://github.com/rohan-12345"
+                  role="button"><i class="fab fa-github"></i></a>
+              </li>
+              <li>
+                <a class="foot btn-outline-light btn-floating m-1"
+                  href="https://www.linkedin.com/in/rohan-rajput-1983b122a/" role="button"><i
+                    class="fab fa-linkedin-in"></i></a>
+              </li>
+              <li>
+                <a class="foot btn-outline-light btn-floating m-1" href="https://mail.google.com/mail/u/0/#inbox"
+                  role="button"><i class="fab fa-google"></i></a>
+              </li>
+              <li>
+                <a class="foot btn-outline-light btn-floating m-1" href="" role="button"><i
+                    class="fab fa-twitter"></i></a>
+              </li>
+            </ul>
+          </div>
+          <!--Grid column-->
+
+          <!--Grid column-->
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+            <h5 class="text-uppercase">Rajesh Kumar</h5>
+
+            <ul class="list-unstyled mb-0">
+              <li>
+                <a class="foot btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                    class="fab fa-github"></i></a>
+              </li>
+              <li>
+                <a class="foot btn-outline-light btn-floating m-1"
+                  href="https://www.linkedin.com/in/rajesh-kumar-a3081b223/" role="button"><i
+                    class="fab fa-linkedin-in"></i></a>
+              </li>
+              <li>
+                <a class="foot btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                    class="fab fa-google"></i></a>
+              </li>
+              <li>
+                <a class="foot btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                    class="fab fa-twitter"></i></a>
+              </li>
+            </ul>
+          </div>
+          <!--Grid column-->
+
+          <!--Grid column-->
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+            <h5 class="text-uppercase">Mudit Rastogi</h5>
+
+            <ul class="list-unstyled mb-0">
+              <li>
+                <a class="foot btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                    class="fab fa-github"></i></a>
+              </li>
+              <li>
+                <a class="foot btn-outline-light btn-floating m-1"
+                  href="https://www.linkedin.com/in/mudit-rastogi-0937b3247/" role="button"><i
+                    class="fab fa-linkedin-in"></i></a>
+              </li>
+              <li>
+                <a class="foot btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                    class="fab fa-google"></i></a>
+              </li>
+              <li>
+                <a class="foot btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                    class="fab fa-twitter"></i></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+
+
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      <div class="copyright">
+        CopyRight
+        &copy; 2023 CampusCrafter
+      </div>
+      <div class="contact">
+        Contact us at: <a href="mailto:contact@admincampuscrafter.com">contact@admincampuscrafter.com</a>
+      </div>
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <script src="1.js"></script>
+  <script src="nav.js"></script>
+  <script src="https://kit.fontawesome.com/cb253e0b32.js" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="js/script.js"></script>
+  <script>
+    var icon = document.getElementById("icon");
+    icon.onclick = function () {
+      document.body.classList.toggle("dark-theme");
+      if (document.body.classList.contains("dark-theme")) {
+        icon.src = "sun.png";
+      }
+      else {
+        icon.src = "moon.png";
+      }
+    }
+  </script>
+
+  <script>
+    function check() {
+      // Check if the user is not logged in
+      if (!localStorage.getItem('isLogin')) {
+        // Redirect to the login page
+        window.location.href = 'login.html'; // Replace 'login.html' with the actual login page URL
+      }
+    }
+    check();
+
+    const btn = document.getElementById('logout');
+    btn.addEventListener('click', () => {
+      console.log('clicked');
+      localStorage.clear('isLogin');
+      check();
+    })
+  </script>
+</body>
+
+</html>

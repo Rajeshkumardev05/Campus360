@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Food Ordering Webpage</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
+    <link rel="stylesheet" href="css/mdb.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="new.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Selector</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Global Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #343a40;
+            color: #ffffff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        /* Container Styles */
+        .container {
+            /* border: 2px solid#1a7ed5; */
+            max-width: 800px;
+            margin: 20px auto;
+            /* background-color: #ffffff; */
+            padding: 20px;
+            /* border-radius: 10px; */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Form Styles */
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #6c757d;
+        }
+
+        select,
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        /* Book Container Styles */
+        .box-container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            /* Allow books to wrap to the next line on smaller screens */
+            gap: 40px;
+            /* Increased gap between book containers to 30px */
+            margin-top: 20px;
+            /* Added margin between button and books */
+        }
+
+        /* Box Styles */
+        .box {
+            border: 1px solid #ced4da;
+            padding: 20px;
+            text-align: center;
+            width: calc(25% - 20px);
+            /* Four boxes in a row with some gap */
+            max-width: 150px;
+            /* Maximum width for each box */
+            margin-bottom: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            height: 200px;
+            margin-left: 50px;
+        }
+
+        .box img {
+            max-width: 100%;
+            max-height: 80px;
+            /* Adjust the max height of the image as needed */
+            margin-bottom: 10px;
+            border-radius: 4px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Recommendation Message Styles */
+        #recommendationMessage {
+            margin-top: 20px;
+            color: #28a745;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        /* Red Border and Sky-Blue Background Styles */
+        .red-border-box {
+            margin-left: 120px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            margin-block: 10px;
+            border: 2px solid red;
+            background-color: skyblue;
+        }
+
+        .red-border-box img {
+            width: 120px;
+        }
+
+        #right {
+            font-style: italic;
+            font-size: larger;
+            margin-left: 50px;
+            font-family: 'Lucida Handwriting';
+            text-align: center;
+            margin-block: 40px;
+        }
+
+        #downloadButton {
+
+            width: 120px;
+            height: 32px;
+            border-radius: 12px;
+            border: 2px solid rgb(118, 118, 212);
+            font-family: 'Comic Sans MS';
+            font-style: italic;
+            margin: auto;
+        }
+
+        #branch:focus {
+            border: 2px solid blue;
+        }
+
+        #year:focus {
+            border: 2px solid blue;
+        }
+
+        #semester:focus {
+            border: 2px solid blue;
+        }
+
+        #show-btn:focus {
+            border: 2px solid dodgerblue;
+        }
+
+        #show-btn,
+        #semester,
+        #year,
+        #branch {
+            border-radius: 10px;
+        }
+
+        #show-btn {
+            margin-top: 28px;
+        }
+
+        .down-btn {
+            color: blue;
+            background-color: #fff;
+            text-decoration: none;
+        }
+
+        .main-txt {
+            text-align: center;
+            color: #1a7ed5;
+            margin-block: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <ul class="nav-links">
+            <a href="index.html"><img src="logo2.png" class="logo"></a>
+            <li><a href="index.html">Home</a></li>
+            <li class="center"><a href="1.html">Buy & Sell</a></li>
+            <li class="forward"><a href="rest.html">Order Food</a></li>
+            <li class="upward"><a href="Xerox page/index.html">Printing</a></li>
+            <li><img src="moon.png" id="icon"></li>
+            <li><button id="logout">Logout</button></li>
+        </ul>
+    </header>
+    <h2 class="main-txt">Book Selector</h2>
+    <div class="container">
+        <label for="branch"><b>Select Branch:</b></label>
+        <select id="branch">
+            <option value="cse">Information Technology</option>
+            <option value="ece">Electronics and Communication</option>
+            <option value="ece">Instrumental And Control Engineering</option>
+            <option value="ece">Computer Science</option>
+            <option value="ece">Textile Engineering</option>
+            <option value="ece">Mechanical Engineering</option>
+        </select>
+
+        <label for="year"><b>Select Year:</b></label>
+        <select id="year">
+            <option value="first">First Year</option>
+            <option value="second">Second Year</option>
+            <option value="third">Third Year</option>
+            <option value="fourth">Fourth Year</option>
+        </select>
+
+        <label for="semester"><b>Select Semester:</b></label>
+        <select id="semester">
+            <option value="even">Even Semester</option>
+            <option value="odd">Odd Semester</option>
+        </select>
+
+        <button onclick="showBooks()" id="show-btn">Show Books</button>
+
+        <div id="bookContainer" class="box-container"></div>
+
+        <div id="recommendationMessage"></div>
+
+    </div>
+    <div id="right">Some Recommended Books......</div>
+    <div class="box-container">
+        <div class="box red-border-box">
+            <img src="dsa_book.jpg" alt="">
+            <p>Book Name</p>
+            <a href='dsa_book.jpg' id="downloadButton" class="down-btn" download="true">Download Now</a>
+        </div>
+        <div class="box red-border-box">
+            <img src="dsa_book.jpg" alt="">
+            <p>Book Name</p>
+            <a href='dsa_book.jpg' id="downloadButton" class="down-btn" download="true">Download Now</a>
+        </div>
+        <div class="box red-border-box">
+            <img src="dsa_book.jpg" alt="">
+            <p>Book Name</p>
+            <a href='dsa_book.jpg' id="downloadButton" class="down-btn" download="true">Download Now</a>
+        </div>
+        <div class="box red-border-box">
+            <img src="dsa_book.jpg" alt="">
+            <p>Book Name</p>
+            <a href='dsa_book.jpg' id="downloadButton" class="down-btn" download="true">Download Now</a>
+        </div>
+
+    </div>
+    <footer class="bg-dark text-center text-white">
+        <!-- Grid container -->
+        <div class="width container p-4 pb-0">
+          <!-- Section: Social media -->
+          <section class="mb-4">
+            <!-- Facebook -->
+            <a class="foot btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-facebook-f"></i></a>
+    
+            <!-- Twitter -->
+            <a class="foot btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-twitter"></i></a>
+    
+            <!-- Google -->
+            <a class="foot btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-google"></i></a>
+    
+            <!-- Instagram -->
+            <a class="foot btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-instagram"></i></a>
+    
+            <!-- Linkedin -->
+            <a class="foot btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                class="fab fa-linkedin-in"></i></a>
+    
+            <!-- Github -->
+            <a class="foot btn-outline-light btn-floating m-1" href="www.github.com" role="button"><i class="fab fa-github"></i></a>
+          </section>
+        </div>
+    
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+          © 2023 Copyright: All rights reserved
+        </div>
+      </footer>
+    <script>
+        function showBooks() {
+            var branch = document.getElementById("branch").value;
+            var year = document.getElementById("year").value;
+            var semester = document.getElementById("semester").value;
+            var bookContainer = document.getElementById("bookContainer");
+            var recommendationMessage = document.getElementById("recommendationMessage");
+
+            var books = getBooks(branch, year, semester);
+
+            bookContainer.innerHTML = "";
+            books.forEach(function (book, index) {
+                var box = document.createElement("div");
+                box.className = "box";
+
+                var img = document.createElement("img");
+                img.src = "dsa_book.jpg";
+                box.appendChild(img);
+
+                var title = document.createElement("div");
+                title.textContent = book;
+                box.appendChild(title);
+
+                bookContainer.appendChild(box);
+
+            });
+        }
+
+        function getBooks(branch, year, semester) {
+
+            if (branch === "cse") {
+                if (year === "first" && semester === "even") {
+                    return ["Discrete Mathematics", "Network Security", "Data Analytics"];
+                } else if (year === "first" && semester === "odd") {
+                    return ["Probability Mathematics", "DBMS", "Oops"];
+                } else if (year === "second" && semester === "even") {
+                    return ["DSA", "Computer Graphics", "FLAT"];
+                } else if (year === "second" && semester === "odd") {
+                    return ["PeterLinz", "Numerical Method", "Web Design"];
+                }
+                else if (year === "third" && semester === "odd") {
+                    return ["PeterLinz", "Numerical Method", "Web Design"];
+                }
+                else if (year === "third" && semester === "even") {
+                    return ["PeterLinz", "Numerical Method", "Web Design"];
+                }
+            } else if (branch === "ece") {
+                if (year === "first" && semester === "even") {
+                    return ["Micro Processor", "Electronics and Instrument", "Dp Kothari"];
+                } else if (year === "first" && semester === "odd") {
+                    return ["ISE Principles of Electronic Communication Systems", "Basic Electronics Communication and Information Engineering", "Photonics: Optical Electronics in Modern Communications"];
+                } else if (year === "second" && semester === "even") {
+                    return ["ECE Book 7", "ECE Book 8", "ECE Book 9"];
+                } else if (year === "second" && semester === "odd") {
+                    return ["ECE Book 10", "ECE Book 11", "ECE Book 12"];
+                }
+                else if (year === "third" && semester === "odd") {
+                    return ["PeterLinz", "Numerical Method", "Web Design"];
+                }
+                else if (year === "third" && semester === "even") {
+                    return ["PeterLinz", "Numerical Method", "Web Design"];
+                }
+            }
+            else if (branch === "Information Technology") {
+                if (year === "first" && semester === "even") {
+                    return ["Discrete Mathematics", "Network Security", "Data Analytics"];
+                } else if (year === "first" && semester === "odd") {
+                    return ["Probability Mathematics", "DBMS", "Oops"];
+                } else if (year === "second" && semester === "even") {
+                    return ["DSA", "Computer Graphics", "FLAT"];
+                } else if (year === "second" && semester === "odd") {
+                    return ["PeterLinz", "Numerical Method", "Web Design"];
+                }
+                else if (year === "third" && semester === "odd") {
+                    return ["PeterLinz", "Numerical Method", "Web Design"];
+                }
+                else if (year === "third" && semester === "even") {
+                    return ["PeterLinz", "Numerical Method", "Web Design"];
+                }
+            }
+
+            return ["No books available"];
+        }
+    </script>
+    <script>
+        var icon = document.getElementById("icon");
+        icon.onclick = function () {
+            document.body.classList.toggle("dark-theme");
+            if (document.body.classList.contains("dark-theme")) {
+                icon.src = "sun.png";
+            }
+            else {
+                icon.src = "moon.png";
+            }
+        }
+    </script>
+    <script>
+        function check() {
+          // Check if the user is not logged in
+          if (!localStorage.getItem('isLogin')) {
+            // Redirect to the login page
+            window.location.href = 'login.html'; // Replace 'login.html' with the actual login page URL
+          }
+        }
+        check();
+    
+        const btn = document.getElementById('logout');
+        btn.addEventListener('click', () => {
+          console.log('clicked');
+          localStorage.clear('isLogin');
+          check();
+        })
+      </script>
+     
+</body>
+
+</html>

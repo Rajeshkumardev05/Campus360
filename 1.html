@@ -1,0 +1,139 @@
+<!-- **********************BUY AND SELL*************************** -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Marketplace</title>
+    <link rel="stylesheet" href="1.css">
+    <link rel="stylesheet" href="buttons.css">
+    <link rel="stylesheet" href="nav.css">
+    <link rel="stylesheet" href="utility.css">
+    <link rel="stylesheet" href="css/mdb.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="new.css">
+
+</head>
+
+<body>
+    <header class="header">
+        <ul class="nav-links">
+            <a href="index.html"><img src="logo2.png" class="logo"></a>
+            <li><a href="index.html">Home</a></li>
+            <li class="upward"><a href="rest.html">Order Food</a></li>
+            <li class="forward"><a href="index.html">Study Materials</a></li>
+            <li class="center"><a href="Xerox page/index.html">Printing</a></li>
+            <li><img src="moon.png" id="icon"></li>
+          </ul>
+</header>
+
+    <div class="para">
+        <h2>Buy an Item</h2>
+    </div>
+
+    <main>
+        <!-- Product Listings Section -->
+        <section class="product-listings">
+            <div class="product-grid" id="product-container">
+                <!-- Product cards will be generated here -->
+            </div>
+            <div class="pagination-buttons">
+                <button  class="button-85" id="prev-button" role="button">Previous</button>
+                <button class="button-85" id="next-button" role="button">Next</button>
+            </div>
+        </section>
+
+        <div class="para">
+            <h2>Sell an Item</h2>
+        </div>
+
+        <section class="post-item">
+            <h2>Post an Item for Sale</h2>
+            <div class="glassmorphic-bg">
+                <form id="post-item-form">
+                    <div class="form-group">
+                        <label for="item-name">Item Name:</label>
+                        <input type="text" id="item-name" name="item-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="item-description">Item Description:</label>
+                        <textarea id="item-description" name="item-description" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="item-price">Price:</label>
+                        <input type="number" id="item-price" name="item-price" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="item-image">Upload Image:</label>
+                        <input type="file" id="item-image" name="item-image" accept="image/*" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="seller-contact">Contact Information:</label>
+                        <input type="text" id="seller-contact" name="seller-contact" required>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" id="post-item-button">Post Item</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+        
+
+    </main>
+
+
+    <footer class="bg-dark text-center text-white">
+        <!-- Grid container -->
+        <div class="width container p-4 pb-0">
+          <!-- Section: Social media -->
+          <section class="mb-4">
+            <!-- Facebook -->
+            <a class="foot btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-facebook-f"></i></a>
+    
+            <!-- Twitter -->
+            <a class="foot btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-twitter"></i></a>
+    
+            <!-- Google -->
+            <a class="foot btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-google"></i></a>
+    
+            <!-- Instagram -->
+            <a class="foot btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-instagram"></i></a>
+    
+            <!-- Linkedin -->
+            <a class="foot btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                class="fab fa-linkedin-in"></i></a>
+    
+            <!-- Github -->
+            <a class="foot btn-outline-light btn-floating m-1" href="www.github.com" role="button"><i class="fab fa-github"></i></a>
+          </section>
+          <!-- Section: Social media -->
+        </div>
+        <!-- Grid container -->
+    
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+          © 2023 Copyright: All rights reserved
+          <!-- <a class="text-white" href="https://mdbootstrap.com/"></a> -->
+        </div>
+        <!-- Copyright -->
+      </footer>
+    <script src="1.js"></script>
+    <script src="nav.js"></script>
+    <script src="https://kit.fontawesome.com/cb253e0b32.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+  <script>
+    var icon = document.getElementById("icon");
+    icon.onclick = function () {
+      document.body.classList.toggle("dark-theme");
+      if (document.body.classList.contains("dark-theme")) {
+        icon.src = "sun.png";
+      }
+      else {
+        icon.src = "moon.png";
+      }
+    }
+  </script>
+</body>
+
+</html>

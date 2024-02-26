@@ -1,0 +1,109 @@
+<!-- *****************************CONTACT SELLER*************************** -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Seller</title>
+    <link rel="stylesheet" href="nav.css">
+    <link rel="stylesheet" href="utility.css">
+    <link rel="stylesheet" href="buttons.css">
+    <link rel="stylesheet" href="1.css">
+    <link rel="stylesheet" href="new_home.css">
+    <style>
+        .error {
+            color: red;
+        }
+
+        .success {
+            color: green;
+        }
+    </style>
+</head>
+
+<body class="forms">
+    <a href="index.html"><img src="logo2.png" class="logo"></a>
+    <img src="moon.png" id="icon"><br>
+    <h1>Contact Seller</h1>
+    <form id="contactForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <div class="form-group">
+            <label for="phone">Phone Number :</label>
+            <input type="text" id="phone" name="phone" required>
+            <span id="phoneError" class="error"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email :</label>
+            <input type="email" id="email" name="email" required>
+            <span id="emailError" class="error"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="roll">Roll Number :</label>
+            <input type="text" id="roll" name="roll" required>
+            <span id="rollError" class="error"></span>
+        </div>
+
+        <label for="branch">Branch:</label>
+        <select id="branch" name="branch" required>
+            <option value="cse">CSE</option>
+            <option value="it">IT</option>
+            <option value="ece">ECE</option>
+            <option value="ee">ME</option>
+            <option value="ce">CE</option>
+            <option value="ice">ICE</option>
+            <option value="ipe">IPE</option>
+            <option value="tt">TT</option>
+            <option value="bt">BT</option>
+        </select><br><br>
+
+        <label for="year">Year:</label>
+        <select id="year" name="year" required>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select><br><br>
+
+        <label for="hostel">Hostel Number:</label>
+        <select id="hostel" name="hostel" required>
+            <option value="mbha">MBH-A</option>
+            <option value="mbhb">MBH-B</option>
+            <option value="mbhf">MBH-F</option>
+
+        </select><br><br>
+
+        <label>Mode of Payment:</label><br>
+        <div class="payment-parent">
+            <input type="radio" id="upi" name="payment" value="UPI" class="payment-child" required><label for="upi">UPI</label><br>
+            <input type="radio" id="cash" name="payment" value="Cash" class="payment-child"><label for="cash">Cash</label><br>
+            <input type="radio" id="card" name="payment" value="Card" class="payment-child"><label for="card">Card</label><br><br>
+        </div>
+        
+        <input class="btn" type="submit" value="Submit">
+        <input class="btn" type="reset" value="Reset">
+    </form>
+
+    <script src="1.js"></script>
+    <script src="nav.js"></script>
+    <script src="validation.js"></script>
+    <script src="https://kit.fontawesome.com/cb253e0b32.js" crossorigin="anonymous"></script>
+    <script>
+        var icon = document.getElementById("icon");
+        icon.onclick = function () {
+          document.body.classList.toggle("dark-theme");
+          if (document.body.classList.contains("dark-theme")) {
+            icon.src = "sun.png";
+          }
+          else {
+            icon.src = "moon.png";
+          }
+        }
+      </script>
+</body>
+
+</html>

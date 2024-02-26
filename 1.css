@@ -1,0 +1,167 @@
+
+:root{
+    --primary-color: #ffffff;
+    --secondary-color: #2A2A2A;
+    /* --tertiary-color:  */
+    /*  */
+  }
+
+  .dark-theme{
+    --primary-color: #2A2A2A;
+    --secondary-color: #ffffff;
+  }
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.para {
+    font-family: 'Lucida Handwriting';
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    font-weight: 800;
+    font-size: 25px;
+    color: orange;
+}
+
+/* CSS for the Post Item Form */
+.post-item {
+    background-color: #f5f5f5;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.post-item h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    font-weight: bold;
+    display: block;
+    color: var(--secondary-color);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border-radius: 3px;
+    font-size: 16px;
+}
+
+.form-group input[type="file"] {
+    padding: 5px;
+    color: var(--secondary-color);
+    background-color: var(--primary-color);
+}
+
+#post-item-button {
+    background-color: #007bff;
+    color: var(--primary-color);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#post-item-button:hover {
+    background-color: #0056b3;
+}
+
+/* CSS for the Glassmorphic Effect with Light Pane Shade Color */
+.post-item {
+    /* background-color: #7DAA62; */
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.glassmorphic-bg {
+    background: var(--primary-color);
+    /* Glassmorphic overlay color */
+    border-radius: 10px;
+    padding: 20px;
+    backdrop-filter: blur(10px);
+    /* Adjust the blur intensity as needed */
+}
+
+/* Rest of your CSS styles go here */
+
+/* CSS for the Product Listings and Pagination */
+.product-listings {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    width: 50%;
+    /* Adjust the width as needed */
+    margin-bottom: 20px;
+}
+
+.product-card {
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    padding: 10px;
+    background-color: lavender;
+    color: purple;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.pagination-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    /* Adjust the width as needed */
+}
+
+#prev-button,
+#next-button {
+    width: 20%;
+    /* Equal width for both buttons */
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    left: 30px;
+}
+
+#prev-button:hover,
+#next-button:hover {
+    background-color: #0056b3;
+}
+
+
+
+/*Utility Classes*/
+
+
+.pagination-buttons
+{
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+    justify-content: space-between;
+    gap: 20px;
+    width: 80%;
+}
+

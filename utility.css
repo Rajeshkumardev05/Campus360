@@ -1,0 +1,106 @@
+* 
+{
+    box-sizing: border-box;
+}
+
+:root 
+{
+    --primary-text-color: #183b56;
+    --secondary-text-color: #577592;
+    --accent-color: #2294ed;
+    --accent-color-dark: #1d69a3;
+    --padding-inline-section: 20px;
+    --primary-color: #ffffff;
+    --secondary-color: #212121;
+}
+
+body 
+{
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--primary-color);
+}
+
+
+/* Subfooter Section */
+
+.subfooter {
+    background-color: black;
+    padding-top: 15px;
+    width: 100%;
+}
+
+.subfooter-container {
+    justify-content: center;
+    gap: 30px;
+    font-size: 25px;
+}
+
+
+.hover-link {
+    color: var(--primary-color);
+    transition: 0.4s ease-out;
+    text-decoration: none;
+}
+
+.hover-link:hover {
+    color: var(--accent-color);
+}
+.insta:hover
+{
+    color: rgb(251, 20, 124);
+}
+.twitter:hover
+{
+    color:#1a0dab;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+.container {
+    max-width: 1180px;
+    margin-inline: auto;
+    padding-inline: var(--padding-inline-section);
+    overflow: hidden;
+}
+
+.company-logo img {
+    width: 200px;
+}
+
+/* .footerclass {
+    margin-top: 40px;
+} */
+
+footer {
+    background-color: #000;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    margin-top: 5px;
+  }
+  
+  .copyright {
+    font-size: 24px;
+    text-shadow: 2px 2px 4px #333;
+    margin-bottom: 10px;
+  }
+  
+  .contact a {
+    font-size: 18px;
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: all 0.3s;
+    text-shadow: 2px 2px 4px orangered;
+  }
+  
+  .contact a:hover {
+    text-shadow: 2px 2px 4px #333;
+  }
+  
+  .contact a:hover {
+    text-decoration: underline;
+    text-shadow: none;
+  }
