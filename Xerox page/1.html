@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Random QR Code for PhonePe</title>
+    <style>
+        #qr-code {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="qr-code"></div>
+
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+    <script>
+        // Generate a random string for the QR code
+        function generateRandomString(length) {
+            var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            var result = '';
+            for (var i = 0; i < length; i++) {
+                result += characters.charAt(Math.floor(Math.random() * characters.length));
+            }
+            return result;
+        }
+
+        // Generate the QR code using the random string
+        function generateQRCode() {
+            var randomString = generateRandomString(10);
+            var qrCode = new QRCode(document.getElementById("qr-code"), {
+                text: randomString,
+                width: 200,
+                height: 200
+            });
+        }
+
+        // Call the generateQRCode function on page load
+        window.onload = generateQRCode;
+    </script>
+</body>
+</html>

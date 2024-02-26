@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Print Ticket</title>
+    <style>
+        body 
+        {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #ticket {
+            max-width: 400px;
+            background-color: #fff;
+            color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            transform: translateY(-10px);
+            transition: transform 0.3s ease-in-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #ticket:hover {
+            transform: translateY(0);
+        }
+
+        #header {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            border-radius: 8px 8px 0 0;
+        }
+
+        h2 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        #content {
+            padding: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        span {
+            font-weight: bold;
+            color: #4caf50;
+        }
+
+        #ticket {
+            perspective: 1000px;
+        }
+
+        #content {
+            transform-style: preserve-3d;
+            transform: translateZ(50px);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        #ticket:hover #content {
+            transform: translateZ(0);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="ticket">
+        <div id="header">
+            <h2>Generated Ticket</h2>
+        </div>
+        <div id="content">
+            <p><span>Unique ID:</span> <span id="uniqueID"></span></p>
+            <p><span>Expected Collection Time:</span> <span id="collectionTime"></span></p>
+        </div>
+    </div>
+
+    <script>
+        function generateUniqueID() {
+            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            let id = '';
+            for (let i = 0; i < 16; i++) {
+                id += characters.charAt(Math.floor(Math.random() * characters.length));
+            }
+            return id;
+        }
+
+        // Function to calculate the expected collection time based on the number of pages and submission time
+        function calculateCollectionTime(pages) {
+            const now = new Date();
+            const openingTime = new Date(now);
+            openingTime.setHours(9, 0, 0, 0); // Shop opens at 9:00 AM
+
+            if (now.getHours() < 9) {
+                // If submitted before the shop opens
+                openingTime.setMinutes(openingTime.getMinutes() + 30); // 30 minutes later
+            } 
+            else 
+            {
+                // If submitted after the shop opens
+                openingTime.setDate(openingTime.getDate() + 1); // Next day
+            }
+
+            return openingTime;
+        }
+
+        function formatTime(date) 
+        {
+            const options = {
+                hour: 'numeric',
+                minute: 'numeric',
+                hour12: true
+            };
+
+            return date.toLocaleTimeString('en-US', options);
+        }
+        const urlParams = new URLSearchParams(window.location.search);
+        const pages = parseInt(urlParams.get('pages'), 10);
+
+        function generateRandomNumber() 
+        {
+            return Math.floor(Math.random() * 10) + 1;
+        }
+
+        function calculateOrShowMessage(pages, randomNumber) {
+            const collectionTime = calculateCollectionTime(pages);
+            let message = '';
+
+            if (randomNumber <= 3) 
+            {
+                message = ` ${formatTime(collectionTime)}`;
+            } 
+            else 
+            {
+                message = 'We apologize for the inconvenience, but our machines are currently not operational. Please try again later.';
+            }
+
+            return message;
+        }
+
+        const uniqueID = generateUniqueID();
+        const randomNumber = generateRandomNumber();
+        const collectionTimeOrMessage = calculateOrShowMessage(pages, randomNumber);
+
+        document.getElementById('uniqueID').innerText = uniqueID;
+        document.getElementById('collectionTime').innerText = collectionTimeOrMessage;
+
+    </script>
+</body>
+</html>

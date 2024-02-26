@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+    <title>Campus Crafter</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
+    <!-- Google Fonts Roboto -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
+    <!-- MDB -->
+    <link rel="stylesheet" href="css/mdb.min.css" />
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/nav.css">
+    <link rel="stylesheet" href="/utility.css">
+    <link rel="stylesheet" href="/buttons.css">
+    <link rel="stylesheet" href="/1.css">
+    <link rel="stylesheet" href="/new.css">
+    <title>Print and Xerox Form</title>
+    <style>
+        /* Add your styles here */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            margin: 20px;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            transform: translateY(-10px);
+            transition: transform 0.3s ease-in-out;
+            position: relative;
+            /* Added position relative for absolute positioning of required indicators */
+        }
+
+        form:hover {
+            transform: translateY(0);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .required-indicator {
+            color: red;
+            font-size: 12px;
+            margin-left: 2px;
+            /* Adjusted margin-left for better alignment */
+        }
+
+        .error-message {
+            color: red;
+            font-size: 12px;
+            margin-top: -8px;
+            /* Adjusted margin-top for better alignment */
+            margin-bottom: 8px;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 16px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        textarea {
+            max-width: 100%;
+        }
+
+        button,
+        #priceDisplay {
+            width: 100%;
+            background-color: #4caf50;
+            color: #fff;
+            padding: 12px 0;
+            /* Modified padding for full width */
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            display: inline-block;
+            margin-bottom: 10px;
+            /* Added margin between buttons */
+        }
+
+        button:hover,
+        #priceDisplay:hover {
+            background-color: #45a049;
+        }
+
+        #priceDisplay {
+            display: none;
+            /* Initially hidden */
+            margin-top: 20px;
+            font-size: 16px;
+            transform: translateZ(10px);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        #priceDisplay:hover {
+            transform: translateZ(15px);
+        }
+
+
+        #textDisplay {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 24px;
+            /* Increased font size for emphasis */
+            color: #4caf50;
+            /* Changed color to green for emphasis */
+            transform: perspective(300px) rotateX(25deg);
+            /* Added 3D transformation */
+            transition: transform 0.3s ease-in-out;
+            /* Added transition for smoother effect */
+        }
+
+        #textDisplay:hover {
+            transform: perspective(300px) rotateX(0);
+            /* Adjusted transformation on hover */
+        }
+
+        @media only screen and (max-width: 480px) {
+            form {
+                max-width: 100%;
+            }
+        }
+
+        @media only screen and (min-width: 481px) and (max-width: 768px) {
+            form {
+                max-width: 100%;
+            }
+        }
+
+        @media only screen and (min-width: 769px) and (max-width: 1024px) {
+            form {
+                max-width: 100%;
+            }
+        }
+
+        @media only screen and (min-width: 1025px) and (max-width: 1200px) {
+            form {
+                max-width: 100%;
+            }
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: rgba(244, 244, 244, 0.5);
+            /* Background color with transparency */
+            margin: 20px;
+            /* Add background image */
+            background-image: url('https://png.pngtree.com/background/20230611/original/pngtree-the-large-format-printer-is-in-a-dark-space-with-more-picture-image_3170894.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <ul class="nav-links">
+            <a href="/index.html"><img src="/logo2.png" class="logo"></a>
+            <li><a href="/index.html">Home</a></li>
+            <li class="center"><a href="/1.html">Buy & Sell</a></li>
+            <li class="upward"><a href="/rest.html">Order Food</a></li>
+            <li class="forward"><a href="#">Study Material</a></li>
+            <li><img src="/moon.png" id="icon"></li>
+        </ul>
+    </header>
+    <form id="printForm">
+        <label for="name">Name<span class="required-indicator">*</span>:</label>
+        <input type="text" id="name" name="name" required>
+        <div id="nameError" class="error-message"></div>
+
+        <label for="phone">Phone Number<span class="required-indicator">*</span>:</label>
+        <input type="tel" id="phone" name="phone" required>
+        <div id="phoneError" class="error-message"></div>
+
+        <label for="service">Choose Service<span class="required-indicator">*</span>:</label>
+        <select id="service" name="service" required>
+            <option value="printing">Printing</option>
+            <option value="xerox">Xerox</option>
+        </select>
+
+        <label for="bwPages">Number of Black/White Pages<span class="required-indicator">*</span>:</label>
+        <input type="number" id="bwPages" name="bwPages" min="0" required>
+        <div id="bwPagesError" class="error-message"></div>
+
+        <label for="colorPages">Number of Color Pages<span class="required-indicator">*</span>:</label>
+        <input type="number" id="colorPages" name="colorPages" min="0" required>
+        <div id="colorPagesError" class="error-message"></div>
+
+        <label for="printType">Print Type<span class="required-indicator">*</span>:</label>
+        <select id="printType" name="printType" required>
+            <option value="oneSided">One-Sided</option>
+            <option value="bothSided">Both-Sided</option>
+        </select>
+
+        <label for="fileUpload">File Upload<span class="required-indicator">*</span>:</label>
+        <input type="file" id="fileUpload" name="fileUpload" accept=".pdf, .doc, .docx , .jpeg , .jpg , .png" required>
+        <div id="fileUploadError" class="error-message"></div>
+
+        <label for="description">Additional Description:</label>
+        <textarea id="description" name="description" rows="4"></textarea>
+
+        <button type="button" onclick="checkPrice()">Check Price</button>
+
+        <button type="button" onclick="openPaymentPage()">Proceed to Payment</button>
+
+        <div id="priceDisplay"></div>
+
+        <div id="textDisplay"></div>
+    </form>
+
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+    <script>
+        function checkPrice() {
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const bwPages = parseInt(document.getElementById('bwPages').value, 10);
+            const colorPages = parseInt(document.getElementById('colorPages').value, 10);
+            const fileUpload = document.getElementById('fileUpload').files[0];
+            const printType = document.getElementById('printType').value;
+
+            // Validate phone number format (10 digits)
+            if (!/^\d{10}$/.test(phone)) {
+                document.getElementById('phoneError').innerText = 'Please enter a valid 10-digit phone number.';
+            } else {
+                document.getElementById('phoneError').innerText = '';
+            }
+
+            // Checking if the required fields are not empty
+            if (!name) {
+                document.getElementById('nameError').innerText = 'Name is required.';
+            } else {
+                document.getElementById('nameError').innerText = '';
+            }
+
+            if (bwPages < 0) {
+                document.getElementById('bwPagesError').innerText = 'Please enter a non-negative value.';
+            } else {
+                document.getElementById('bwPagesError').innerText = '';
+            }
+
+            if (colorPages < 0) {
+                document.getElementById('colorPagesError').innerText = 'Please enter a non-negative value.';
+            } else {
+                document.getElementById('colorPagesError').innerText = '';
+            }
+
+            // Check if a file is uploaded
+            if (!fileUpload) {
+                document.getElementById('fileUploadError').innerText = 'File upload is required.';
+            } else {
+                document.getElementById('fileUploadError').innerText = '';
+            }
+
+            // If any error exists, do not proceed to calculate price
+            if (document.querySelectorAll('.error-message:not(:empty)').length > 0) {
+                return;
+            }
+
+            let bwPrice, colorPrice;
+
+            if (printType === 'oneSided') {
+                bwPrice = bwPages * 2; // 2 rupees per black/white page
+                colorPrice = colorPages * 10; // 10 rupees per color page
+            } else if (printType === 'bothSided') {
+                // For both-sided printing, halve the number of pages
+                bwPrice = (bwPages / 2) * 3; // 3 rupees per black/white page
+                colorPrice = (colorPages / 2) * 15; // 15 rupees per color page
+            }
+
+            const totalPrice = bwPrice + colorPrice;
+
+            const priceDisplay = document.getElementById('priceDisplay');
+            priceDisplay.innerText = `Total Price: ${totalPrice} rupees`;
+            priceDisplay.style.display = 'block'; // Display the price
+            priceDisplay.style.opacity = 1;
+
+
+            // Clear text display
+            document.getElementById('textDisplay').innerText = '';
+        }
+
+        // Function to open the new payment success page
+        function openPaymentPage() {
+            // Check if the price has been displayed
+            if (document.getElementById('priceDisplay').innerText.trim() !== '') {
+                // Redirect to the payment success page
+                window.location.href = 'payment.html';
+            } else {
+                // Display an alert or message asking the user to check the price first
+                alert('Please check the price before proceeding to payment.');
+            }
+        }
+
+        function openPaymentPage() {
+            // Check if the price has been displayed
+            if (document.getElementById('priceDisplay').innerText.trim() !== '') {
+                // Redirect to the payment success page
+                window.location.href = 'payment.html';
+            } else {
+                // Display an alert or message asking the user to check the price first
+                alert('Please check the price before proceeding to payment.');
+            }
+        }
+    </script>
+    <script>
+        var icon = document.getElementById("icon");
+        icon.onclick = function () {
+            document.body.classList.toggle("dark-theme");
+            if (document.body.classList.contains("dark-theme")) {
+                icon.src = "/sun.png";
+            }
+            else {
+                icon.src = "/moon.png";
+            }
+        }
+    </script>
+    <footer class="bg-dark text-center text-white">
+        <!-- Grid container -->
+        <div class="width container p-4 pb-0">
+            <!-- Section: Social media -->
+            <section class="mb-4">
+                <!-- Facebook -->
+                <a class="foot btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                        class="fab fa-facebook-f"></i></a>
+
+                <!-- Twitter -->
+                <a class="foot btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                        class="fab fa-twitter"></i></a>
+
+                <!-- Google -->
+                <a class="foot btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                        class="fab fa-google"></i></a>
+
+                <!-- Instagram -->
+                <a class="foot btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                        class="fab fa-instagram"></i></a>
+
+                <!-- Linkedin -->
+                <a class="foot btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                        class="fab fa-linkedin-in"></i></a>
+
+                <!-- Github -->
+                <a class="foot btn-outline-light btn-floating m-1" href="www.github.com" role="button"><i
+                        class="fab fa-github"></i></a>
+            </section>
+            <!-- Section: Social media -->
+        </div>
+        <!-- Grid container -->
+
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2023 Copyright: All rights reserved
+            <!-- <a class="text-white" href="https://mdbootstrap.com/"></a> -->
+        </div>
+        <!-- Copyright -->
+    </footer>
+</body>
+
+</html>

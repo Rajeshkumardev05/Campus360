@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        div {
+            text-align: center;
+            max-width: 600px;
+            background-color: white; /* White background color */
+            color: rgb(91, 0, 156); /* Purple text color */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            font-size: 20px;
+            color: rgb(91, 0, 156);
+        }
+
+        .line1 {
+            font-size: 20px;
+        }
+
+        .line2 {
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+
+        #qrcode {
+            margin-bottom: 20px;
+        }
+
+        button {
+            width: 100%;
+            background-color: #4caf50;
+            color: #fff;
+            padding: 12px 0;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            display: inline-block;
+            margin-top: 20px; /* Add margin at the top */
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /* Circular logo styles */
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+
+        .logo img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px; /* Add margin to separate logo and text */
+        }
+
+        .logo h2 {
+            font-size: 24px;
+            margin: 0;
+        }
+
+        @media screen and (max-width: 600px) {
+            .logo {
+                flex-direction: column; /* Stack items vertically */
+            }
+
+            .logo img {
+                margin-right: 0; /* Remove right margin for stacking */
+                margin-bottom: 10px; /* Add bottom margin for stacking */
+            }
+        }
+        .new{
+            align-items: center;
+        }
+    </style>
+    
+</head>
+
+<body>
+    <div>
+        <div class="new"> <a href="index.html"><img src="/logo2.png" class="logo" height="60px" align="middle"></a></div>
+        <div class="logo">
+            <!-- Replace the src attribute with the actual path to your payment gateway logo -->
+            <img src="phonepe.jpg" alt="Payment Gateway Logo">
+            <h2>Phone Pe</h2>
+        </div>
+        <p class="line2">ACCEPTED HERE</p>
+        <p id="ownerName" class="line1">Mr. Rohan</p>
+        <p id="bankName" class="line1">State Bank Of India R.E.C. Jalandhar</p>
+        <div id="qrcode"></div>
+        <p>Pay to mobile number using PhonePe App</p>
+        <p>9988776655</p>
+        <button onclick="returnToMainForm()">Payment is Done</button>
+    </div>
+
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+    <script type="text/javascript">
+        // Function to handle the button click and redirect to the main form page
+        function returnToMainForm() {
+            window.location.href = 'ticket.html';
+        }
+
+        // Function to generate and display the QR code
+        function generateQRCode() {
+            const qrCodeContainer = document.getElementById('qrcode');
+
+            // Clear any existing content
+            qrCodeContainer.innerHTML = '';
+
+            // Use the provided QRCode snippet to generate the code
+            new QRCode(qrCodeContainer, "#");
+        }
+
+        // Call the generateQRCode function when the page loads
+        generateQRCode();
+    </script>
+</body>
+
+</html>
