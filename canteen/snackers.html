@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../new.css";
+</head>
+<body class="">
+    <ul class="nav-links">
+        <a href="../index.html"><img src="../logo2.png" class="logo"></a>
+        <li><a href="../rest.html">Canteens</a></li>
+        <li class="center"><a href="sai_juice_corner.html">Juice Corner</a></li>
+        <li class="upward"><a href="night_canteen.html">Night Canteen</a></li>
+        <li class="forward"><a href="yadav_canteen.html">Yadav Canteen</a></li>
+        <li><img src="../moon.png" id="icon"></li>
+      </ul>
+    <div class="container">
+        <header>
+            <h1>The Snackers</h1>
+            <div class="shopping">
+                <img src="image/shopping.svg">
+                <span class="quantity">0</span>
+            </div>
+        </header>
+
+        <div class="list">
+          
+        </div>
+    </div>
+    <div class="card">
+        <h1>Selected Items</h1>
+        <ul class="listCard">
+        </ul>
+        <div class="checkOut">
+            <div class="total">0</div>
+            <div class="closeShopping">Close</div>
+        </div>
+    </div>
+
+    <script>
+        let openShopping = document.querySelector('.shopping');
+        let closeShopping = document.querySelector('.closeShopping');
+        let list = document.querySelector('.list');
+        let listCard = document.querySelector('.listCard');
+        let body = document.querySelector('body');
+        let total = document.querySelector('.total');
+        let quantity = document.querySelector('.quantity');
+        
+        openShopping.addEventListener('click', ()=>{
+            body.classList.add('active');
+        })
+        closeShopping.addEventListener('click', ()=>{
+            body.classList.remove('active');
+        })
+        
+        let products = [
+            {
+                id: 1,
+                name: 'Paneer Butter Masala',
+                image: 'paneer_butter_masala.PNG',
+                price:  115,
+                width:'200px'
+            },
+            {
+                id: 2,
+                name: 'Pav Bhaji',
+                image: 'pav_bhaji.JPEG',
+                price: 80
+            },
+            {
+                id: 3,
+                name: 'Veg Thali',
+                image: 'veg_thali.PNG',
+                price: 60
+            },
+            {
+                id: 4,
+                name: 'Rajma Chawal',
+                image: 'rajma_chawal.PNG',
+                price: 50
+            },
+            {
+                id: 5,
+                name: 'Dosa Sambhar',
+                image: 'dosa.PNG',
+                price: 60
+            },
+            {
+                id: 6,
+                name: 'Aaloo Parantha',
+                image: 'aaloo_parantha.PNG',
+                price: 30
+            },
+            {
+                id: 7,
+                name: 'Chole Bhature',
+                image: 'chole_bhature.PNG',
+                price: 50
+            },
+            {
+                id: 8,
+                name: 'Paties',
+                image: 'paties.PNG',
+                price: 30
+            },
+            {
+                id: 9,
+                name: 'Chana Samosa',
+                image: 'chana_samosa.PNG',
+                price: 30
+            }
+        ];
+        let listCards  = [];
+        function initApp(){
+            products.forEach((value, key) =>{
+                let newDiv = document.createElement('div');
+                newDiv.classList.add('item');
+                newDiv.innerHTML = `
+                    <img src="image/${value.image}">
+                    <div class="title">${value.name}</div>
+                    <div class="price">${value.price.toLocaleString()}</div>
+                    <button onclick="addToCard(${key})">Add To Cart</button>`;
+                list.appendChild(newDiv);
+            })
+        }
+        initApp();
+        function addToCard(key){
+            if(listCards[key] == null){
+                // copy product form list to list card
+                listCards[key] = JSON.parse(JSON.stringify(products[key]));
+                listCards[key].quantity = 1;
+            }
+            reloadCard();
+        }
+        function reloadCard(){
+            listCard.innerHTML = '';
+            let count = 0;
+            let totalPrice = 0;
+            listCards.forEach((value, key)=>{
+                totalPrice += value.price;
+                count += value.quantity;
+                if(value != null){
+                    let newDiv = document.createElement('li');
+                    newDiv.innerHTML = `
+                        <div><img src="image/${value.image}"/></div>
+                        <div>${value.name}</div>
+                        <div>${value.price.toLocaleString()}</div>
+                        <div>
+                            <button onclick="changeQuantity(${key}, ${value.quantity - 1})">-</button>
+                            <div class="count">${value.quantity}</div>
+                            <button onclick="changeQuantity(${key}, ${value.quantity + 1})">+</button>
+                        </div>`;
+                        listCard.appendChild(newDiv);
+                }
+            })
+            total.innerText = totalPrice.toLocaleString();
+            quantity.innerText = count;
+        }
+        function changeQuantity(key, quantity){
+            if(quantity == 0){
+                delete listCards[key];
+            }else{
+                listCards[key].quantity = quantity;
+                listCards[key].price = quantity * products[key].price;
+            }
+            reloadCard();
+        } 
+    </script>
+    
+    <script>
+        var icon = document.getElementById("icon");
+        icon.onclick = function () {
+          document.body.classList.toggle("dark-theme");
+          if (document.body.classList.contains("dark-theme")) {
+            icon.src = "../sun.png";
+          }
+          else {
+            icon.src = "../moon.png";
+          }
+        }
+      </script>
+</body>
+</html>
